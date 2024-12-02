@@ -32,21 +32,21 @@
             this.transactionMenuStrip = new System.Windows.Forms.MenuStrip();
             this.transactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoClientGroupBox = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCourriel = new System.Windows.Forms.TextBox();
+            this.txtNom = new System.Windows.Forms.TextBox();
             this.courrielLabel = new System.Windows.Forms.Label();
             this.nomLabel = new System.Windows.Forms.Label();
             this.transactionGroupBox = new System.Windows.Forms.GroupBox();
-            this.prixTotalLabel = new System.Windows.Forms.Label();
-            this.prixProduitLabel = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.lblPrix = new System.Windows.Forms.Label();
+            this.txtDate = new System.Windows.Forms.TextBox();
             this.totalLabel = new System.Windows.Forms.Label();
             this.prixLabel = new System.Windows.Forms.Label();
             this.produitLabel = new System.Windows.Forms.Label();
             this.fournisseurLabel = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
+            this.cboLivreur = new System.Windows.Forms.ComboBox();
+            this.cboVoiture = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.imagePictureBox)).BeginInit();
             this.transactionMenuStrip.SuspendLayout();
             this.infoClientGroupBox.SuspendLayout();
@@ -56,189 +56,209 @@
             // imagePictureBox
             // 
             this.imagePictureBox.Image = global::ConcessionnaireProche.Properties.Resources.superCarsImage;
-            this.imagePictureBox.Location = new System.Drawing.Point(25, 39);
+            this.imagePictureBox.Location = new System.Drawing.Point(17, 25);
+            this.imagePictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.imagePictureBox.Name = "imagePictureBox";
-            this.imagePictureBox.Size = new System.Drawing.Size(530, 281);
+            this.imagePictureBox.Size = new System.Drawing.Size(353, 183);
             this.imagePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imagePictureBox.TabIndex = 0;
             this.imagePictureBox.TabStop = false;
             // 
             // transactionMenuStrip
             // 
-            this.transactionMenuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.transactionMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.transactionMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.transactionToolStripMenuItem});
             this.transactionMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.transactionMenuStrip.Name = "transactionMenuStrip";
-            this.transactionMenuStrip.Size = new System.Drawing.Size(579, 33);
+            this.transactionMenuStrip.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.transactionMenuStrip.Size = new System.Drawing.Size(386, 24);
             this.transactionMenuStrip.TabIndex = 1;
             this.transactionMenuStrip.Text = "menuStrip1";
             // 
             // transactionToolStripMenuItem
             // 
             this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
-            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(116, 29);
+            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(80, 22);
             this.transactionToolStripMenuItem.Text = "Transaction";
             // 
             // infoClientGroupBox
             // 
-            this.infoClientGroupBox.Controls.Add(this.textBox2);
-            this.infoClientGroupBox.Controls.Add(this.textBox1);
+            this.infoClientGroupBox.Controls.Add(this.txtCourriel);
+            this.infoClientGroupBox.Controls.Add(this.txtNom);
             this.infoClientGroupBox.Controls.Add(this.courrielLabel);
             this.infoClientGroupBox.Controls.Add(this.nomLabel);
-            this.infoClientGroupBox.Location = new System.Drawing.Point(25, 326);
+            this.infoClientGroupBox.Location = new System.Drawing.Point(17, 212);
+            this.infoClientGroupBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.infoClientGroupBox.Name = "infoClientGroupBox";
-            this.infoClientGroupBox.Size = new System.Drawing.Size(530, 158);
+            this.infoClientGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.infoClientGroupBox.Size = new System.Drawing.Size(353, 103);
             this.infoClientGroupBox.TabIndex = 3;
             this.infoClientGroupBox.TabStop = false;
             this.infoClientGroupBox.Text = "Information du client";
             // 
-            // textBox2
+            // txtCourriel
             // 
-            this.textBox2.Location = new System.Drawing.Point(179, 94);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(302, 26);
-            this.textBox2.TabIndex = 3;
+            this.txtCourriel.Location = new System.Drawing.Point(119, 61);
+            this.txtCourriel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCourriel.Name = "txtCourriel";
+            this.txtCourriel.Size = new System.Drawing.Size(203, 20);
+            this.txtCourriel.TabIndex = 3;
             // 
-            // textBox1
+            // txtNom
             // 
-            this.textBox1.Location = new System.Drawing.Point(179, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(302, 26);
-            this.textBox1.TabIndex = 2;
+            this.txtNom.Location = new System.Drawing.Point(119, 28);
+            this.txtNom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNom.Name = "txtNom";
+            this.txtNom.Size = new System.Drawing.Size(203, 20);
+            this.txtNom.TabIndex = 2;
             // 
             // courrielLabel
             // 
             this.courrielLabel.AutoSize = true;
-            this.courrielLabel.Location = new System.Drawing.Point(45, 97);
+            this.courrielLabel.Location = new System.Drawing.Point(30, 63);
+            this.courrielLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.courrielLabel.Name = "courrielLabel";
-            this.courrielLabel.Size = new System.Drawing.Size(67, 20);
+            this.courrielLabel.Size = new System.Drawing.Size(45, 13);
             this.courrielLabel.TabIndex = 1;
             this.courrielLabel.Text = "Courriel:";
             // 
             // nomLabel
             // 
             this.nomLabel.AutoSize = true;
-            this.nomLabel.Location = new System.Drawing.Point(45, 46);
+            this.nomLabel.Location = new System.Drawing.Point(30, 30);
+            this.nomLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nomLabel.Name = "nomLabel";
-            this.nomLabel.Size = new System.Drawing.Size(46, 20);
+            this.nomLabel.Size = new System.Drawing.Size(32, 13);
             this.nomLabel.TabIndex = 0;
             this.nomLabel.Text = "Nom:";
             // 
             // transactionGroupBox
             // 
-            this.transactionGroupBox.Controls.Add(this.prixTotalLabel);
-            this.transactionGroupBox.Controls.Add(this.prixProduitLabel);
-            this.transactionGroupBox.Controls.Add(this.textBox5);
-            this.transactionGroupBox.Controls.Add(this.textBox4);
-            this.transactionGroupBox.Controls.Add(this.textBox3);
+            this.transactionGroupBox.Controls.Add(this.cboVoiture);
+            this.transactionGroupBox.Controls.Add(this.cboLivreur);
+            this.transactionGroupBox.Controls.Add(this.lblTotal);
+            this.transactionGroupBox.Controls.Add(this.lblPrix);
+            this.transactionGroupBox.Controls.Add(this.txtDate);
             this.transactionGroupBox.Controls.Add(this.totalLabel);
             this.transactionGroupBox.Controls.Add(this.prixLabel);
             this.transactionGroupBox.Controls.Add(this.produitLabel);
             this.transactionGroupBox.Controls.Add(this.fournisseurLabel);
             this.transactionGroupBox.Controls.Add(this.dateLabel);
-            this.transactionGroupBox.Location = new System.Drawing.Point(25, 506);
+            this.transactionGroupBox.Location = new System.Drawing.Point(17, 329);
+            this.transactionGroupBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.transactionGroupBox.Name = "transactionGroupBox";
-            this.transactionGroupBox.Size = new System.Drawing.Size(530, 312);
+            this.transactionGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.transactionGroupBox.Size = new System.Drawing.Size(353, 203);
             this.transactionGroupBox.TabIndex = 4;
             this.transactionGroupBox.TabStop = false;
             this.transactionGroupBox.Text = "Transaction";
             // 
-            // prixTotalLabel
+            // lblTotal
             // 
-            this.prixTotalLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.prixTotalLabel.Location = new System.Drawing.Point(327, 261);
-            this.prixTotalLabel.Name = "prixTotalLabel";
-            this.prixTotalLabel.Size = new System.Drawing.Size(154, 31);
-            this.prixTotalLabel.TabIndex = 10;
-            this.prixTotalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblTotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblTotal.Location = new System.Drawing.Point(218, 170);
+            this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(103, 20);
+            this.lblTotal.TabIndex = 10;
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // prixProduitLabel
+            // lblPrix
             // 
-            this.prixProduitLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.prixProduitLabel.Location = new System.Drawing.Point(327, 206);
-            this.prixProduitLabel.Name = "prixProduitLabel";
-            this.prixProduitLabel.Size = new System.Drawing.Size(154, 31);
-            this.prixProduitLabel.TabIndex = 9;
-            this.prixProduitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblPrix.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblPrix.Location = new System.Drawing.Point(218, 134);
+            this.lblPrix.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPrix.Name = "lblPrix";
+            this.lblPrix.Size = new System.Drawing.Size(103, 20);
+            this.lblPrix.TabIndex = 9;
+            this.lblPrix.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox5
+            // txtDate
             // 
-            this.textBox5.Location = new System.Drawing.Point(179, 153);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(302, 26);
-            this.textBox5.TabIndex = 8;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(179, 98);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(302, 26);
-            this.textBox4.TabIndex = 7;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(179, 43);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(302, 26);
-            this.textBox3.TabIndex = 4;
+            this.txtDate.Location = new System.Drawing.Point(119, 28);
+            this.txtDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.Size = new System.Drawing.Size(203, 20);
+            this.txtDate.TabIndex = 4;
             // 
             // totalLabel
             // 
             this.totalLabel.AutoSize = true;
-            this.totalLabel.Location = new System.Drawing.Point(45, 266);
+            this.totalLabel.Location = new System.Drawing.Point(30, 173);
+            this.totalLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.totalLabel.Name = "totalLabel";
-            this.totalLabel.Size = new System.Drawing.Size(48, 20);
+            this.totalLabel.Size = new System.Drawing.Size(34, 13);
             this.totalLabel.TabIndex = 6;
             this.totalLabel.Text = "Total:";
             // 
             // prixLabel
             // 
             this.prixLabel.AutoSize = true;
-            this.prixLabel.Location = new System.Drawing.Point(45, 211);
+            this.prixLabel.Location = new System.Drawing.Point(30, 137);
+            this.prixLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.prixLabel.Name = "prixLabel";
-            this.prixLabel.Size = new System.Drawing.Size(42, 20);
+            this.prixLabel.Size = new System.Drawing.Size(30, 13);
             this.prixLabel.TabIndex = 5;
             this.prixLabel.Text = "Prix: ";
             // 
             // produitLabel
             // 
             this.produitLabel.AutoSize = true;
-            this.produitLabel.Location = new System.Drawing.Point(45, 156);
+            this.produitLabel.Location = new System.Drawing.Point(30, 101);
+            this.produitLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.produitLabel.Name = "produitLabel";
-            this.produitLabel.Size = new System.Drawing.Size(64, 20);
+            this.produitLabel.Size = new System.Drawing.Size(43, 13);
             this.produitLabel.TabIndex = 4;
             this.produitLabel.Text = "Voiture:";
             // 
             // fournisseurLabel
             // 
             this.fournisseurLabel.AutoSize = true;
-            this.fournisseurLabel.Location = new System.Drawing.Point(45, 101);
+            this.fournisseurLabel.Location = new System.Drawing.Point(30, 66);
+            this.fournisseurLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.fournisseurLabel.Name = "fournisseurLabel";
-            this.fournisseurLabel.Size = new System.Drawing.Size(60, 20);
+            this.fournisseurLabel.Size = new System.Drawing.Size(42, 13);
             this.fournisseurLabel.TabIndex = 3;
             this.fournisseurLabel.Text = "Livreur:";
             // 
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Location = new System.Drawing.Point(45, 46);
+            this.dateLabel.Location = new System.Drawing.Point(30, 30);
+            this.dateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(48, 20);
+            this.dateLabel.Size = new System.Drawing.Size(33, 13);
             this.dateLabel.TabIndex = 2;
             this.dateLabel.Text = "Date:";
             // 
+            // cboLivreur
+            // 
+            this.cboLivreur.FormattingEnabled = true;
+            this.cboLivreur.Location = new System.Drawing.Point(119, 63);
+            this.cboLivreur.Name = "cboLivreur";
+            this.cboLivreur.Size = new System.Drawing.Size(202, 21);
+            this.cboLivreur.TabIndex = 11;
+            // 
+            // cboVoiture
+            // 
+            this.cboVoiture.FormattingEnabled = true;
+            this.cboVoiture.Location = new System.Drawing.Point(119, 98);
+            this.cboVoiture.Name = "cboVoiture";
+            this.cboVoiture.Size = new System.Drawing.Size(202, 21);
+            this.cboVoiture.TabIndex = 12;
+            // 
             // ConssesionnaireSport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 830);
+            this.ClientSize = new System.Drawing.Size(386, 540);
             this.Controls.Add(this.transactionGroupBox);
             this.Controls.Add(this.infoClientGroupBox);
             this.Controls.Add(this.imagePictureBox);
             this.Controls.Add(this.transactionMenuStrip);
             this.MainMenuStrip = this.transactionMenuStrip;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ConssesionnaireSport";
             this.Text = "Concessionnaire Voiture Sport";
             ((System.ComponentModel.ISupportInitialize)(this.imagePictureBox)).EndInit();
@@ -267,13 +287,13 @@
         private System.Windows.Forms.Label produitLabel;
         private System.Windows.Forms.Label fournisseurLabel;
         private System.Windows.Forms.Label dateLabel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label prixTotalLabel;
-        private System.Windows.Forms.Label prixProduitLabel;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtNom;
+        private System.Windows.Forms.TextBox txtCourriel;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label lblPrix;
+        private System.Windows.Forms.TextBox txtDate;
+        private System.Windows.Forms.ComboBox cboVoiture;
+        private System.Windows.Forms.ComboBox cboLivreur;
     }
 }
 
