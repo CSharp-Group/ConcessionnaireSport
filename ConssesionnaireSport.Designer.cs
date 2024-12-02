@@ -261,6 +261,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ConssesionnaireSport";
             this.Text = "Concessionnaire Voiture Sport";
+            this.Load += new System.EventHandler(this.ConssesionnaireSport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imagePictureBox)).EndInit();
             this.transactionMenuStrip.ResumeLayout(false);
             this.transactionMenuStrip.PerformLayout();

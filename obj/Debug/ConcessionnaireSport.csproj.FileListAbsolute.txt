@@ -8,3 +8,13 @@ C:\Users\ejalbert26\source\repos\Annee2\PROG1236 - C#\ConcessionnaireProche\obj\
 C:\Users\ejalbert26\source\repos\Annee2\PROG1236 - C#\ConcessionnaireProche\obj\Debug\ConcessionnaireSport.csproj.CoreCompileInputs.cache
 C:\Users\ejalbert26\source\repos\Annee2\PROG1236 - C#\ConcessionnaireProche\obj\Debug\ConcessionnaireProche.exe
 C:\Users\ejalbert26\source\repos\Annee2\PROG1236 - C#\ConcessionnaireProche\obj\Debug\ConcessionnaireProche.pdb
+C:\Users\avery\source\repos\ConcessionnaireSport\bin\Debug\ConcessionnaireProche.exe.config
+C:\Users\avery\source\repos\ConcessionnaireSport\bin\Debug\ConcessionnaireProche.exe
+C:\Users\avery\source\repos\ConcessionnaireSport\bin\Debug\ConcessionnaireProche.pdb
+C:\Users\avery\source\repos\ConcessionnaireSport\obj\Debug\ConcessionnaireSport.csproj.AssemblyReference.cache
+C:\Users\avery\source\repos\ConcessionnaireSport\obj\Debug\ConcessionnaireSport.ConssesionnaireSport.resources
+C:\Users\avery\source\repos\ConcessionnaireSport\obj\Debug\ConcessionnaireProche.Properties.Resources.resources
+C:\Users\avery\source\repos\ConcessionnaireSport\obj\Debug\ConcessionnaireSport.csproj.GenerateResource.cache
+C:\Users\avery\source\repos\ConcessionnaireSport\obj\Debug\ConcessionnaireSport.csproj.CoreCompileInputs.cache
+C:\Users\avery\source\repos\ConcessionnaireSport\obj\Debug\ConcessionnaireProche.exe
+C:\Users\avery\source\repos\ConcessionnaireSport\obj\Debug\ConcessionnaireProche.pdb
