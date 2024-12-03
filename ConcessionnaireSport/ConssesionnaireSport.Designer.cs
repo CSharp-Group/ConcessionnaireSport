@@ -32,16 +32,17 @@
             this.transactionMenuStrip = new System.Windows.Forms.MenuStrip();
             this.transactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoClientGroupBox = new System.Windows.Forms.GroupBox();
-            this.txtCourriel = new System.Windows.Forms.TextBox();
-            this.txtNom = new System.Windows.Forms.TextBox();
+            this.lblErreurCourriel = new System.Windows.Forms.Label();
+            this.txtNom = new System.Windows.Forms.MaskedTextBox();
+            this.txtCourriel = new System.Windows.Forms.MaskedTextBox();
             this.courrielLabel = new System.Windows.Forms.Label();
             this.nomLabel = new System.Windows.Forms.Label();
             this.transactionGroupBox = new System.Windows.Forms.GroupBox();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.cboVoiture = new System.Windows.Forms.ComboBox();
             this.cboLivreur = new System.Windows.Forms.ComboBox();
             this.txtTotal = new System.Windows.Forms.Label();
             this.txtPrix = new System.Windows.Forms.Label();
-            this.txtDate = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblPrix = new System.Windows.Forms.Label();
             this.produitLabel = new System.Windows.Forms.Label();
@@ -72,20 +73,21 @@
             this.transactionMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.transactionMenuStrip.Name = "transactionMenuStrip";
             this.transactionMenuStrip.Padding = new System.Windows.Forms.Padding(5, 1, 0, 1);
-            this.transactionMenuStrip.Size = new System.Drawing.Size(515, 26);
+            this.transactionMenuStrip.Size = new System.Drawing.Size(515, 24);
             this.transactionMenuStrip.TabIndex = 1;
             this.transactionMenuStrip.Text = "menuStrip1";
             // 
             // transactionToolStripMenuItem
             // 
             this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
-            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
+            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(80, 22);
             this.transactionToolStripMenuItem.Text = "Transaction";
             // 
             // infoClientGroupBox
             // 
-            this.infoClientGroupBox.Controls.Add(this.txtCourriel);
+            this.infoClientGroupBox.Controls.Add(this.lblErreurCourriel);
             this.infoClientGroupBox.Controls.Add(this.txtNom);
+            this.infoClientGroupBox.Controls.Add(this.txtCourriel);
             this.infoClientGroupBox.Controls.Add(this.courrielLabel);
             this.infoClientGroupBox.Controls.Add(this.nomLabel);
             this.infoClientGroupBox.Location = new System.Drawing.Point(23, 261);
@@ -97,21 +99,34 @@
             this.infoClientGroupBox.TabStop = false;
             this.infoClientGroupBox.Text = "Information du client";
             // 
-            // txtCourriel
+            // lblErreurCourriel
             // 
-            this.txtCourriel.Location = new System.Drawing.Point(159, 75);
-            this.txtCourriel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtCourriel.Name = "txtCourriel";
-            this.txtCourriel.Size = new System.Drawing.Size(269, 22);
-            this.txtCourriel.TabIndex = 3;
+            this.lblErreurCourriel.AutoSize = true;
+            this.lblErreurCourriel.ForeColor = System.Drawing.Color.Red;
+            this.lblErreurCourriel.Location = new System.Drawing.Point(156, 103);
+            this.lblErreurCourriel.Name = "lblErreurCourriel";
+            this.lblErreurCourriel.Size = new System.Drawing.Size(46, 16);
+            this.lblErreurCourriel.TabIndex = 3;
+            this.lblErreurCourriel.Text = "Erreur:";
+            this.lblErreurCourriel.Visible = false;
             // 
             // txtNom
             // 
-            this.txtNom.Location = new System.Drawing.Point(159, 34);
-            this.txtNom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNom.Location = new System.Drawing.Point(159, 37);
             this.txtNom.Name = "txtNom";
-            this.txtNom.Size = new System.Drawing.Size(269, 22);
-            this.txtNom.TabIndex = 2;
+            this.txtNom.Size = new System.Drawing.Size(268, 22);
+            this.txtNom.TabIndex = 1;
+            this.txtNom.Enter += new System.EventHandler(this.txt_Enter);
+            // 
+            // txtCourriel
+            // 
+            this.txtCourriel.Location = new System.Drawing.Point(159, 78);
+            this.txtCourriel.Name = "txtCourriel";
+            this.txtCourriel.Size = new System.Drawing.Size(268, 22);
+            this.txtCourriel.TabIndex = 2;
+            this.txtCourriel.Enter += new System.EventHandler(this.txt_Enter);
+            this.txtCourriel.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCourriel_Validate);
+            this.txtCourriel.Leave += new System.EventHandler(this.txtCourriel_Validate);
             // 
             // courrielLabel
             // 
@@ -119,7 +134,7 @@
             this.courrielLabel.Location = new System.Drawing.Point(40, 78);
             this.courrielLabel.Name = "courrielLabel";
             this.courrielLabel.Size = new System.Drawing.Size(56, 16);
-            this.courrielLabel.TabIndex = 1;
+            this.courrielLabel.TabIndex = 0;
             this.courrielLabel.Text = "Courriel:";
             // 
             // nomLabel
@@ -133,11 +148,11 @@
             // 
             // transactionGroupBox
             // 
+            this.transactionGroupBox.Controls.Add(this.dtpDate);
             this.transactionGroupBox.Controls.Add(this.cboVoiture);
             this.transactionGroupBox.Controls.Add(this.cboLivreur);
             this.transactionGroupBox.Controls.Add(this.txtTotal);
             this.transactionGroupBox.Controls.Add(this.txtPrix);
-            this.transactionGroupBox.Controls.Add(this.txtDate);
             this.transactionGroupBox.Controls.Add(this.lblTotal);
             this.transactionGroupBox.Controls.Add(this.lblPrix);
             this.transactionGroupBox.Controls.Add(this.produitLabel);
@@ -152,24 +167,31 @@
             this.transactionGroupBox.TabStop = false;
             this.transactionGroupBox.Text = "Transaction";
             // 
+            // dtpDate
+            // 
+            this.dtpDate.Location = new System.Drawing.Point(159, 37);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(268, 22);
+            this.dtpDate.TabIndex = 3;
+            // 
             // cboVoiture
             // 
             this.cboVoiture.FormattingEnabled = true;
             this.cboVoiture.Location = new System.Drawing.Point(159, 121);
-            this.cboVoiture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboVoiture.Margin = new System.Windows.Forms.Padding(4);
             this.cboVoiture.Name = "cboVoiture";
             this.cboVoiture.Size = new System.Drawing.Size(268, 24);
-            this.cboVoiture.TabIndex = 12;
+            this.cboVoiture.TabIndex = 5;
             this.cboVoiture.SelectedIndexChanged += new System.EventHandler(this.cboVoiture_SelectedIndexChanged);
             // 
             // cboLivreur
             // 
             this.cboLivreur.FormattingEnabled = true;
             this.cboLivreur.Location = new System.Drawing.Point(159, 78);
-            this.cboLivreur.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboLivreur.Margin = new System.Windows.Forms.Padding(4);
             this.cboLivreur.Name = "cboLivreur";
             this.cboLivreur.Size = new System.Drawing.Size(268, 24);
-            this.cboLivreur.TabIndex = 11;
+            this.cboLivreur.TabIndex = 4;
             // 
             // txtTotal
             // 
@@ -177,7 +199,7 @@
             this.txtTotal.Location = new System.Drawing.Point(291, 209);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(137, 25);
-            this.txtTotal.TabIndex = 10;
+            this.txtTotal.TabIndex = 0;
             this.txtTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtPrix
@@ -186,16 +208,8 @@
             this.txtPrix.Location = new System.Drawing.Point(291, 165);
             this.txtPrix.Name = "txtPrix";
             this.txtPrix.Size = new System.Drawing.Size(137, 25);
-            this.txtPrix.TabIndex = 9;
+            this.txtPrix.TabIndex = 0;
             this.txtPrix.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtDate
-            // 
-            this.txtDate.Location = new System.Drawing.Point(159, 34);
-            this.txtDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(269, 22);
-            this.txtDate.TabIndex = 4;
             // 
             // lblTotal
             // 
@@ -203,7 +217,7 @@
             this.lblTotal.Location = new System.Drawing.Point(40, 213);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(41, 16);
-            this.lblTotal.TabIndex = 6;
+            this.lblTotal.TabIndex = 0;
             this.lblTotal.Text = "Total:";
             // 
             // lblPrix
@@ -212,7 +226,7 @@
             this.lblPrix.Location = new System.Drawing.Point(40, 169);
             this.lblPrix.Name = "lblPrix";
             this.lblPrix.Size = new System.Drawing.Size(35, 16);
-            this.lblPrix.TabIndex = 5;
+            this.lblPrix.TabIndex = 0;
             this.lblPrix.Text = "Prix: ";
             // 
             // produitLabel
@@ -221,7 +235,7 @@
             this.produitLabel.Location = new System.Drawing.Point(40, 124);
             this.produitLabel.Name = "produitLabel";
             this.produitLabel.Size = new System.Drawing.Size(52, 16);
-            this.produitLabel.TabIndex = 4;
+            this.produitLabel.TabIndex = 0;
             this.produitLabel.Text = "Voiture:";
             // 
             // fournisseurLabel
@@ -230,7 +244,7 @@
             this.fournisseurLabel.Location = new System.Drawing.Point(40, 81);
             this.fournisseurLabel.Name = "fournisseurLabel";
             this.fournisseurLabel.Size = new System.Drawing.Size(50, 16);
-            this.fournisseurLabel.TabIndex = 3;
+            this.fournisseurLabel.TabIndex = 0;
             this.fournisseurLabel.Text = "Livreur:";
             // 
             // dateLabel
@@ -239,7 +253,7 @@
             this.dateLabel.Location = new System.Drawing.Point(40, 37);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(39, 16);
-            this.dateLabel.TabIndex = 2;
+            this.dateLabel.TabIndex = 0;
             this.dateLabel.Text = "Date:";
             // 
             // ConssesionnaireSport
@@ -282,13 +296,14 @@
         private System.Windows.Forms.Label produitLabel;
         private System.Windows.Forms.Label fournisseurLabel;
         private System.Windows.Forms.Label dateLabel;
-        private System.Windows.Forms.TextBox txtNom;
-        private System.Windows.Forms.TextBox txtCourriel;
         private System.Windows.Forms.Label txtTotal;
         private System.Windows.Forms.Label txtPrix;
-        private System.Windows.Forms.TextBox txtDate;
         private System.Windows.Forms.ComboBox cboVoiture;
         private System.Windows.Forms.ComboBox cboLivreur;
+        private System.Windows.Forms.MaskedTextBox txtNom;
+        private System.Windows.Forms.MaskedTextBox txtCourriel;
+        private System.Windows.Forms.DateTimePicker dtpDate;
+        private System.Windows.Forms.Label lblErreurCourriel;
     }
 }
 
