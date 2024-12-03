@@ -11,7 +11,9 @@ namespace TransactionNS
     public class Transaction
     {
         private string dataPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..", "Data"));
-        private const string CULTURE_CA = "en-CA";
+        private CultureInfo culture = new CultureInfo("en-CA");
+        private const decimal tax = (decimal)0.15;
+
         #region Declaration des Tableaux
         private string[] tLivreurs = new string[20];
         private string[] tVoitures = new string[20];
@@ -20,12 +22,17 @@ namespace TransactionNS
         private string _Voiture;
         private string _Livreur;
         private decimal _Prix;
+
+        private string _Courriel;
+        private string _Nom;
+        private DateTime _Date;
+        private decimal _Total;
         #endregion
 
         public Transaction()
         {
             InitLivreurs();
-            InitVoitures();
+            InitVoituresPrix();
         }
 
         #region Initialisation des Tableaux
@@ -56,7 +63,7 @@ namespace TransactionNS
             }
         }
 
-        private void InitVoitures()
+        private void InitVoituresPrix()
         {
             try
             {
@@ -76,7 +83,7 @@ namespace TransactionNS
                         string[] voiture = voitureArr.Split(';');
 
                         tVoitures[i] = voiture[0];
-                        prix[i] = decimal.Parse(voiture[1], CultureInfo.CreateSpecificCulture(CULTURE_CA));
+                        prix[i] = decimal.Parse(voiture[1], culture);
                     }
 
                 }
@@ -142,6 +149,20 @@ namespace TransactionNS
                 _Prix = value;
             }
         }
+
+        public decimal PrixTotal
+        {
+            get
+            {
+                return _Total;
+            }
+            set
+            {
+                if (value <= 0)
+                    throw new Exception("Le prix total doit être supérieur à 0");
+                _Total = value;
+            }
+        }
         #endregion
 
 
@@ -166,6 +187,12 @@ namespace TransactionNS
                 Console.WriteLine(e.Message);
                 return 0;
             }
+        }
+
+        public decimal GetTotal(decimal prix)
+        {
+            decimal taxes = prix * tax;
+            return prix + taxes;
         }
     }
 }

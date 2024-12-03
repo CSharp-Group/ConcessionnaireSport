@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,7 @@ namespace ConcessionnaireSport
     public partial class ConssesionnaireSport : Form
     {
         private string dataPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..", "Data"));
-        private const decimal tax = (decimal)0.15;
+        private CultureInfo culture = new CultureInfo("en-CA");
 
         public ConssesionnaireSport()
         {
@@ -42,11 +43,10 @@ namespace ConcessionnaireSport
             Transaction oTrans = new Transaction();
 
             decimal prix = oTrans.GetPrix(cboVoiture.SelectedIndex);
-            decimal taxes = prix * tax;
-            decimal total = prix + taxes;
+            decimal total = oTrans.GetTotal(prix);
 
-            txtPrix.Text = prix.ToString("C");
-            txtTotal.Text = total.ToString("C");
+            txtPrix.Text = prix.ToString("C", culture);
+            txtTotal.Text = total.ToString("C", culture);
         }
 
         private void txtCourriel_Leave(object sender, EventArgs e)
