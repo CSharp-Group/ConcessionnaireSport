@@ -69,6 +69,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Data\Livreurs.data" />
+    <None Include="Data\Transactions.data" />
     <None Include="Data\Voitures.data" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -91,6 +92,15 @@
       <Project>{82092f81-a53f-4c1e-b17b-33d00351c3d6}</Project>
       <Name>Transaction</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save_6530.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PrintHS.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

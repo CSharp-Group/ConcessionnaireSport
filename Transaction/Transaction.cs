@@ -15,6 +15,7 @@ namespace TransactionNS
         private const decimal tax = (decimal)0.15;
 
         #region Declaration des Tableaux
+
         private string[] tLivreurs = new string[20];
         private string[] tVoitures = new string[20];
         private decimal[] prix = new decimal[20];
@@ -27,6 +28,7 @@ namespace TransactionNS
         private string _Nom;
         private DateTime _Date;
         private decimal _Total;
+
         #endregion
 
         public Transaction()
@@ -53,7 +55,6 @@ namespace TransactionNS
                     {
                         tLivreurs[i] = sr.ReadLine();
                     }
-
 
                 }
             }
@@ -96,6 +97,57 @@ namespace TransactionNS
         #endregion
 
         #region Propriétés
+
+        public string Nom
+        {
+            get { return _Nom; }
+            set
+            {
+                if (value != null)
+                {
+                    value = value.Trim();
+
+                    if (value != string.Empty)
+                        _Nom = value;
+                    else
+                        throw new ArgumentException("Le nom est obligatoire");
+                }
+                else
+                    throw new ArgumentNullException("Le nom est obligatoire");
+            }
+        }
+        public string Courriel
+        {
+            get { return _Courriel; }
+            set
+            {
+                if (value != null)
+                {
+                    value = value.Trim();
+
+                    if (value != string.Empty)
+                        _Courriel = value;
+                    else
+                        throw new ArgumentException("Le courriel est obligatoire");
+                }
+                else
+                    throw new ArgumentNullException("Le courriel est obligatoire");
+            }
+        }
+        public DateTime Date
+        {
+            get { return _Date; }
+            set
+            {
+                if (DateTime.Now.AddDays(-10) <= value && value <= DateTime.Now.AddDays(10))
+                {
+                    _Date = value;
+                }
+                else
+                    throw new ArgumentOutOfRangeException("La date doit se situer dans les 10 jours precedant ou suivant de la date courante");
+           
+            }
+        }
         public string Livreur
         {
             get
@@ -194,5 +246,38 @@ namespace TransactionNS
             decimal taxes = prix * tax;
             return prix + taxes;
         }
+
+        public void Enregistrer(string nom, string courriel, DateTime date,  string livreurs, string voitures, decimal prix)
+        {
+            try
+            {
+                this.Nom = nom;
+                this.Courriel = courriel;
+                this.Date = date;
+                this.Livreur = livreurs; 
+                this.Voiture = voitures; 
+                this.PrixTotal = prix;
+
+                string path = Path.Combine(dataPath, "Transactions.data");
+
+                using (StreamWriter outputFile = new StreamWriter(path, true, Encoding.UTF8))
+                {
+                    outputFile.WriteLine(this.Nom + ";" + this.Courriel + ";" + this.Date + ";" + this.Livreur + ";" + this.Voiture + ";" + this.PrixTotal);
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Une erreur s'est produite pendant l'enregistrement.", exception);
+            }
+        }
+
+        public void Imprimer(DateTime date, string voitures, decimal prix)
+        {
+            Console.WriteLine("Date : " + DateTime.Now);
+            Console.WriteLine("Date\t\t\t\tProduit\t\t\t\t\t\tPrix");
+            Console.WriteLine("------------------\t--------------------------\t------------");
+            Console.WriteLine(date.ToString("MMMM dd, yyyy") + "\t" + voitures + "\t\t\t" + prix);
+        }
+        
     }
 }

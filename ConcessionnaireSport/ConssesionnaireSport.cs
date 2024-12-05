@@ -36,6 +36,9 @@ namespace ConcessionnaireSport
 
             cboVoiture.Items.AddRange(oTrans.GetVoitures());
             cboLivreur.Items.AddRange(oTrans.GetLivreurs());
+
+            cboLivreur.SelectedIndex = 0;
+            cboVoiture.SelectedIndex = 0;
         }
 
         private void cboVoiture_SelectedIndexChanged(object sender, EventArgs e)
@@ -89,5 +92,35 @@ namespace ConcessionnaireSport
         }
 
         #endregion
+
+        private void Enregistrer(object sender, EventArgs e)
+        {
+            ValidateChildren();
+            Transaction oTrans = new Transaction();
+
+            try
+            {
+                oTrans.Enregistrer(txtNom.Text, txtCourriel.Text, DateTime.Parse(dateTimePicker1.Text),
+                    cboLivreur.Text, cboVoiture.Text, Decimal.Parse(txtPrix.Text, System.Globalization.NumberStyles.Currency));
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Imprimer(object sender, EventArgs e)
+        {
+            try
+            {
+                Transaction oTrans = new Transaction();
+                oTrans.Imprimer(DateTime.Parse(dateTimePicker1.Text), cboVoiture.Text, Decimal.Parse(txtPrix.Text, System.Globalization.NumberStyles.Currency));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
