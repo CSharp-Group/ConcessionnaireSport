@@ -102,7 +102,7 @@ namespace ConcessionnaireSport
             {
                 oTrans.Enregistrer(txtNom.Text, txtCourriel.Text, DateTime.Parse(dateTimePicker1.Text),
                     cboLivreur.Text, cboVoiture.Text, Decimal.Parse(txtPrix.Text, System.Globalization.NumberStyles.Currency));
-
+                MessageBox.Show("Transaction enregistrée");
             }
             catch (Exception ex)
             {
@@ -114,8 +114,32 @@ namespace ConcessionnaireSport
         {
             try
             {
-                Transaction oTrans = new Transaction();
-                oTrans.Imprimer(DateTime.Parse(dateTimePicker1.Text), cboVoiture.Text, Decimal.Parse(txtPrix.Text, System.Globalization.NumberStyles.Currency));
+                Console.WriteLine($"Date : {DateTime.Now:D}");
+                Console.WriteLine();
+
+                string headerFormat = "{0,-20} {1,-20} {2,10}";
+                Console.WriteLine(string.Format(headerFormat, "Date", "Produit", "Prix"));
+                Console.WriteLine(new string('-', 19) + "  " + new string('-', 25) + "  " + new string('-', 14)); // Ligne de séparation
+
+                decimal prixTotal = 0;
+
+                using (StreamReader sr = new StreamReader(Path.Combine(dataPath, "Transactions.data")))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        string[] transaction = line.Split(';');
+                        DateTime date = DateTime.Parse(transaction[2]);
+                        string produit = transaction[4];
+                        decimal prix = Decimal.Parse(transaction[5], culture);
+
+                        Console.WriteLine(string.Format("{0,-20} {1, -20} {2,20}", date.ToString("MMMM dd, yyyy"), produit, prix.ToString("C", culture)));
+                        prixTotal += prix;
+                    }
+                }
+
+                Console.WriteLine();
+                Console.WriteLine(string.Format("{0,-41} {1,20}", "Total de la transaction : ", prixTotal.ToString("C", culture)));
             }
             catch (Exception ex)
             {

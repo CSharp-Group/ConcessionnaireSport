@@ -60,7 +60,7 @@ namespace TransactionNS
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                throw new Exception("Une erreur s'est produite lors de l'initialisation des livreurs.", e);
             }
         }
 
@@ -78,20 +78,21 @@ namespace TransactionNS
                     Array.Resize(ref tVoitures, length);
                     Array.Resize(ref prix, length);
 
-                    for (int i = 0; i < length; i++)
+                    int i = 0;
+                    while (i < length)
                     {
                         string voitureArr = sr.ReadLine();
                         string[] voiture = voitureArr.Split(';');
 
                         tVoitures[i] = voiture[0];
                         prix[i] = decimal.Parse(voiture[1], culture);
+                        i++;
                     }
-
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                throw new Exception("Une erreur s'est produite lors de l'initialisation des voitures.", e);
             }
         }
         #endregion
@@ -262,7 +263,7 @@ namespace TransactionNS
 
                 using (StreamWriter outputFile = new StreamWriter(path, true, Encoding.UTF8))
                 {
-                    outputFile.WriteLine(this.Nom + ";" + this.Courriel + ";" + this.Date + ";" + this.Livreur + ";" + this.Voiture + ";" + this.PrixTotal);
+                    outputFile.WriteLine(this.Nom + ";" + this.Courriel + ";" + this.Date.ToShortDateString() + ";" + this.Livreur + ";" + this.Voiture + ";" + this.PrixTotal);
                 }
             }
             catch (Exception exception)
@@ -270,14 +271,5 @@ namespace TransactionNS
                 throw new Exception("Une erreur s'est produite pendant l'enregistrement.", exception);
             }
         }
-
-        public void Imprimer(DateTime date, string voitures, decimal prix)
-        {
-            Console.WriteLine("Date : " + DateTime.Now);
-            Console.WriteLine("Date\t\t\t\tProduit\t\t\t\t\t\tPrix");
-            Console.WriteLine("------------------\t--------------------------\t------------");
-            Console.WriteLine(date.ToString("MMMM dd, yyyy") + "\t" + voitures + "\t\t\t" + prix);
-        }
-        
     }
 }
